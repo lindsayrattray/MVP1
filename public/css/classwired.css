@@ -156,14 +156,20 @@ a {
       outline: none; }
     #pitch input[type="email"] {
       left: 0;
-      right: 90px;
+      right: 5rem;
       background-color: #fff;
-      border: 1px solid #b7b7b7;
+      border: 1px solid #d1d1d1;
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
-      padding: 0 1em; }
+      padding: 0 1em;
+      -webkit-transition: all 0.2s ease-out;
+      -moz-transition: all 0.2s ease-out;
+      transition: all 0.2s ease-out; }
+      #pitch input[type="email"]:focus {
+        border-color: #b7b7b7;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); }
     #pitch input[type="submit"] {
-      width: 90px;
+      width: 5rem;
       right: 0;
       text-align: center;
       font-size: 0.96em;

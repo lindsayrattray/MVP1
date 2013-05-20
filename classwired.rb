@@ -13,5 +13,10 @@ get '/' do
 end
 
 post '/app/register' do
-    'mailout'
+    Pony.mail(
+        :to  => 'lindsayrattray@yahoo.com',
+        :subject => 'ClassWired registration',
+        :body => params[:email],
+        :from => 'lindsayrattray@yahoo.com'
+    )
 end
