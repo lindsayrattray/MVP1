@@ -59,7 +59,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Varela Round"; }
+  font-family: "Montserrat"; }
 
 a {
   color: inherit;
@@ -75,7 +75,7 @@ a {
 #pitch {
   position: relative;
   padding: 1.4em;
-  font-family: "Varela Round";
+  font-family: "Montserrat";
   font-size: 3.2em;
   letter-spacing: 0.04em; }
   #pitch img {
