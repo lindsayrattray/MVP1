@@ -68,13 +68,8 @@ a {
   color: inherit;
   text-decoration: inherit; }
 
-.logotype {
-  font-family: "Raleway";
-  font-weight: 400; }
-  .logotype span:nth-child(1) {
-    color: #63c9eb; }
-  .logotype span:nth-child(2) {
-    color: #f18609; }
+p {
+  line-height: 1.4em; }
 
 .wrap {
   width: 90%;
@@ -100,9 +95,15 @@ a {
   #masthead .tagline {
     display: inline-block; }
   #masthead h1 {
+    font-family: "Raleway";
+    font-weight: 500;
     font-size: 1.6em;
     text-transform: lowercase;
     margin: 0 0.6rem 0 0; }
+    #masthead h1 span:nth-child(1) {
+      color: #63c9eb; }
+    #masthead h1 span:nth-child(2) {
+      color: #f18609; }
   #masthead .tagline {
     font-size: 1.1em;
     color: #b7b7b7; }
@@ -237,3 +238,33 @@ a {
     font-size: 1.6em;
     font-weight: 600;
     margin: 0 0 1.2em 0; }
+
+#find,
+#start,
+#interact,
+#monitor {
+  margin: 0 0 1.2em 0; }
+  #find h1,
+  #start h1,
+  #interact h1,
+  #monitor h1 {
+    font-size: 1.6em;
+    font-weight: 600;
+    margin: 0 0 1em 0; }
+    #find h1 b,
+    #start h1 b,
+    #interact h1 b,
+    #monitor h1 b {
+      font-weight: 700; }
+
+#find h1 {
+  color: #f18609; }
+
+#start h1 {
+  color: #ac3014; }
+
+#interact h1 {
+  color: #33c220; }
+
+#monitor h1 {
+  color: #63c9eb; }

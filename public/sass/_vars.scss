@@ -20,6 +20,21 @@ $content-max-width: 900px;
 
 $masthead-height: 3.4em;
 
+@mixin logotype {
+    font: {
+        family: $font-logotype;
+        weight: 500;
+    }
+
+    span:nth-child(1) {
+        color: $col-logo-primary;
+    }
+
+    span:nth-child(2) {
+        color: $col-logo-secondary;
+    }
+}
+
 @mixin pill-button($basecol) {
     @include linear-gradient(top, lighten($basecol, 40%) 0%, lighten($basecol, 5%) 5%, $basecol 60%, $basecol 95%, darken($basecol, 40%) 100%);
 }

@@ -23,19 +23,8 @@ a {
     text-decoration: inherit;
 }
 
-.logotype {
-    font: {
-        family: $font-logotype;
-        weight: 400;
-    }
-
-    span:nth-child(1) {
-        color: $col-logo-primary;
-    }
-
-    span:nth-child(2) {
-        color: $col-logo-secondary;
-    }    
+p {
+    line-height: 1.4em;
 }
 
 .wrap {
@@ -61,6 +50,7 @@ a {
     }
 
     h1 {
+        @include logotype;
         font: {
             size: 1.6em;
         }
@@ -245,4 +235,39 @@ a {
         }
         margin: 0 0 1.2em 0;
     }
+}
+
+#find,
+#start,
+#interact,
+#monitor {
+    h1 {
+        font: {
+            size: 1.6em;
+            weight: 600;
+        }
+        margin: 0 0 1em 0;
+
+        b {
+            font-weight: 700;
+        }
+    }
+
+    margin: 0 0 1.2em 0;
+}
+
+#find h1 {
+    color: $col-orange;
+}
+
+#start h1 {
+    color: $col-red;
+}
+
+#interact h1 {
+    color: $col-green;
+}
+
+#monitor h1 {
+    color: $col-blue;
 }
