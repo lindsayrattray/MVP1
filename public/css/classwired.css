@@ -220,16 +220,23 @@ p {
     height: 16rem;
     overflow: hidden;
     position: relative; }
-    #info .point-container li {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      left: 0;
-      overflow: hidden;
-      background-color: white;
-      -webkit-transition: left 0.4s ease-out;
-      -moz-transition: left 0.4s ease-out;
-      transition: left 0.4s ease-out; }
+  #info .point {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    background-color: white;
+    -webkit-transition: left 0.4s ease-out;
+    -moz-transition: left 0.4s ease-out;
+    transition: left 0.4s ease-out; }
+    #info .point p {
+      font-size: 2em;
+      line-height: 1.1em;
+      width: 10em;
+      text-align: center;
+      margin: 0.6em auto 0;
+      color: #515151; }
   #info .point-nav-arrow {
     width: 4rem;
     height: 4rem;
@@ -301,7 +308,7 @@ p {
 #interact,
 #monitor {
   position: relative;
-  width: 80%;
+  width: 40%;
   margin: 0 auto 4rem; }
   #find h1,
   #find p,
@@ -311,8 +318,8 @@ p {
   #interact p,
   #monitor h1,
   #monitor p {
-    margin-left: 50%;
-    padding-left: 1.4rem; }
+    width: 100%;
+    text-align: center; }
   #find h1,
   #start h1,
   #interact h1,
@@ -335,6 +342,9 @@ p {
   #interact a.top,
   #monitor a.top {
     display: none; }
+
+#monitor {
+  margin-bottom: 9em; }
 
 #find h1 {
   color: #d6974d; }
