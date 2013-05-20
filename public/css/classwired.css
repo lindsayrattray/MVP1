@@ -195,7 +195,9 @@ p {
   #info h1 {
     font-size: 1.6em;
     font-weight: 600;
-    margin: 0 0 1.2em 0; }
+    margin: 0 0 1.2em 0;
+    width: 100%;
+    text-align: center; }
   #info .point-container {
     display: block;
     width: 100%;
@@ -209,9 +211,9 @@ p {
       left: 0;
       overflow: hidden;
       background-color: white;
-      -webkit-transition: left 0.8s ease-out;
-      -moz-transition: left 0.8s ease-out;
-      transition: left 0.8s ease-out; }
+      -webkit-transition: left 0.4s ease-out;
+      -moz-transition: left 0.4s ease-out;
+      transition: left 0.4s ease-out; }
   #info .point-nav {
     display: block;
     width: 10em;
@@ -237,25 +239,47 @@ p {
   #howitworks > h1 {
     font-size: 1.6em;
     font-weight: 600;
-    margin: 0 0 1.2em 0; }
+    margin: 0 0 2em 0;
+    width: 100%;
+    text-align: center; }
+
+.question {
+  display: none; }
 
 #find,
 #start,
 #interact,
 #monitor {
-  margin: 0 0 1.2em 0; }
+  position: relative;
+  width: 80%;
+  margin: 0 auto 4rem; }
+  #find h1,
+  #find p,
+  #start h1,
+  #start p,
+  #interact h1,
+  #interact p,
+  #monitor h1,
+  #monitor p {
+    margin-left: 50%;
+    padding-left: 1.4rem; }
   #find h1,
   #start h1,
   #interact h1,
   #monitor h1 {
+    margin-bottom: 0.6em;
     font-size: 1.6em;
-    font-weight: 600;
-    margin: 0 0 1em 0; }
+    font-weight: 600; }
     #find h1 b,
     #start h1 b,
     #interact h1 b,
     #monitor h1 b {
       font-weight: 700; }
+  #find a.top,
+  #start a.top,
+  #interact a.top,
+  #monitor a.top {
+    display: none; }
 
 #find h1 {
   color: #f18609; }
@@ -264,7 +288,7 @@ p {
   color: #ac3014; }
 
 #interact h1 {
-  color: #33c220; }
+  color: #2dac1c; }
 
 #monitor h1 {
   color: #63c9eb; }

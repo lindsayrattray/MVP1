@@ -178,7 +178,10 @@ p {
             size: 1.6em;
             weight: 600;
         }
+
         margin: 0 0 1.2em 0;
+        width: 100%;
+        text-align: center;
     }
 
     .point-container {
@@ -196,7 +199,7 @@ p {
             left: 0;
             overflow: hidden;
             background-color: $col-page;
-            @include transition(left 0.8s ease-out);
+            @include transition(left 0.4s ease-out);
         }
     }
 
@@ -233,27 +236,49 @@ p {
             size: 1.6em;
             weight: 600;
         }
-        margin: 0 0 1.2em 0;
+
+        margin: 0 0 2em 0;
+        width: 100%;
+        text-align: center;
     }
+}
+
+.question {
+    display: none;
 }
 
 #find,
 #start,
 #interact,
 #monitor {
+    
+    position: relative;
+    width: 80%;
+    margin: 0 auto 4rem;
+    
+    h1,
+    p {
+        margin-left: 50%;
+        padding-left: 1.4rem;
+    }
+
     h1 {
+        margin-bottom: 0.6em;
+
         font: {
             size: 1.6em;
             weight: 600;
         }
-        margin: 0 0 1em 0;
 
         b {
             font-weight: 700;
         }
     }
 
-    margin: 0 0 1.2em 0;
+    a.top {
+        display: none;
+    }
+    
 }
 
 #find h1 {
@@ -265,7 +290,7 @@ p {
 }
 
 #interact h1 {
-    color: $col-green;
+    color: darken($col-green, 5%);
 }
 
 #monitor h1 {
