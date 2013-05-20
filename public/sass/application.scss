@@ -223,7 +223,11 @@ p {
         left: 0;
         overflow: hidden;
         background-color: $col-page;
-        @include transition(left 0.4s ease-out);
+        @include transition(
+            left 0.4s ease-out,
+            opacity 0.1s ease-out
+        );
+        opacity: 0;
 
         p {
             font-size: 2em;
@@ -232,6 +236,10 @@ p {
             text-align: center;
             margin: 0.6em auto 0;
             color: darken($col-grey, 40%);
+        }
+
+        &.current {
+            opacity: 1;
         }
     }
 

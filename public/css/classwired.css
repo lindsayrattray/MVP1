@@ -227,9 +227,10 @@ p {
     left: 0;
     overflow: hidden;
     background-color: white;
-    -webkit-transition: left 0.4s ease-out;
-    -moz-transition: left 0.4s ease-out;
-    transition: left 0.4s ease-out; }
+    -webkit-transition: left 0.4s ease-out, opacity 0.1s ease-out;
+    -moz-transition: left 0.4s ease-out, opacity 0.1s ease-out;
+    transition: left 0.4s ease-out, opacity 0.1s ease-out;
+    opacity: 0; }
     #info .point p {
       font-size: 2em;
       line-height: 1.1em;
@@ -237,6 +238,8 @@ p {
       text-align: center;
       margin: 0.6em auto 0;
       color: #515151; }
+    #info .point.current {
+      opacity: 1; }
   #info .point-nav-arrow {
     width: 4rem;
     height: 4rem;

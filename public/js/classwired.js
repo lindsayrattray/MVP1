@@ -69,8 +69,13 @@ var classwired = (function(cw) {
 
     cw.gotoPoint = function(atindex) {
         $(this.point_nav_buttons[this.curr_point_index]).removeClass('current');
+
+        $(this.point_pages[this.curr_point_index]).removeClass('current');
+
         this.curr_point_index = atindex;
         var num_indices = this.point_pages.length - 1;
+
+        $(this.point_pages[this.curr_point_index]).addClass('current');
         
         _.map(this.point_pages, function(item, index) {
             var newleft = (index - atindex) * 100;
