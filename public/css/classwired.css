@@ -71,10 +71,13 @@ a {
 p {
   line-height: 1.4em; }
 
+.balance-text {
+  text-wrap: balanced; }
+
 .wrap {
   width: 90%;
   margin: 0 auto;
-  max-width: 900px; }
+  max-width: 800px; }
 
 #masthead {
   top: 0;
@@ -111,11 +114,12 @@ p {
 #pitch {
   margin: 3.4em 0 2em;
   position: relative;
-  padding: 1.4em 0; }
+  padding: 1.4em 0 2.5em;
+  border-bottom: 1px solid #dddddd; }
   #pitch img {
     display: block;
     width: 90%;
-    margin: 1.4em auto 1em; }
+    margin: 2.6em auto; }
   #pitch h1,
   #pitch h2 {
     width: 100%;
@@ -123,18 +127,32 @@ p {
     font-size: 2.6em;
     font-weight: 900;
     letter-spacing: 0em; }
-  #pitch h3 {
-    width: 100%;
-    text-align: center;
+  #pitch h2 {
+    margin-bottom: 1.4em; }
+  #pitch .call {
+    width: 90%;
+    max-width: 77.4%;
     margin: 1em auto 0.6em;
+    *zoom: 1; }
+    #pitch .call:before, #pitch .call:after {
+      content: " ";
+      display: table; }
+    #pitch .call:after {
+      clear: both; }
+  #pitch h3 {
+    display: block;
+    text-align: right;
+    width: 49%;
+    float: left;
+    padding-right: 1rem;
+    margin-top: 0.2em;
     font-size: 1.6em;
     font-weight: 600;
-    color: #ac3014; }
+    color: #279619; }
   #pitch form {
     *zoom: 1;
-    width: 80%;
-    max-width: 400px;
-    margin: 0 auto;
+    width: 51%;
+    float: right;
     position: relative;
     height: 2.6rem; }
     #pitch form:before, #pitch form:after {
@@ -158,30 +176,29 @@ p {
       outline: none; }
     #pitch input[type="email"] {
       left: 0;
-      right: 5rem;
-      background-color: #fff;
-      border: 1px solid #d1d1d1;
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
-      padding: 0 1em;
+      right: 5.2rem;
+      color: #000;
+      background-color: #f4f4f4;
+      border: 1px solid white;
+      border-radius: 4px;
+      padding: 0 0.6em;
       -webkit-transition: all 0.2s ease-out;
       -moz-transition: all 0.2s ease-out;
       transition: all 0.2s ease-out; }
       #pitch input[type="email"]:focus {
-        border-color: #b7b7b7;
-        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); }
+        background-color: #f9f9f9;
+        border-color: #eaeaea; }
     #pitch input[type="submit"] {
       width: 5rem;
+      height: 5rem;
+      line-height: 5rem;
+      border-radius: 5rem;
       right: 0;
       text-align: center;
-      font-size: 0.96em;
-      background-color: #9aec8f;
-      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9aec8f), color-stop(5%, #2dac1c), color-stop(60%, #279619), color-stop(95%, #279619), color-stop(100%, black));
-      background-image: -webkit-linear-gradient(top, #9aec8f 0%, #2dac1c 5%, #279619 60%, #279619 95%, black 100%);
-      background-image: linear-gradient(to bottom,#9aec8f 0%, #2dac1c 5%, #279619 60%, #279619 95%, black 100%);
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.6);
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
+      font-size: 1.6em;
+      font-weight: 700;
+      margin-top: -1.13636rem;
+      background-color: #279619;
       color: #fff;
       cursor: pointer; }
 
@@ -251,9 +268,9 @@ p {
     line-height: 1.2em;
     font-style: italic; }
     .quote p:before {
-      content: '"'; }
+      content: '\201C'; }
     .quote p:after {
-      content: '"'; }
+      content: '\201D'; }
 
 #find,
 #start,
