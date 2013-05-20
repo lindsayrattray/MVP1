@@ -111,9 +111,7 @@ p {
 #pitch {
   margin: 3.4em 0 2em;
   position: relative;
-  padding: 1.4em 0;
-  background: url(../img/pitch-back-mock.png) no-repeat center;
-  background-size: 100% auto; }
+  padding: 1.4em 0; }
   #pitch img {
     display: block;
     width: 90%;
@@ -243,8 +241,19 @@ p {
     width: 100%;
     text-align: center; }
 
-.question {
-  display: none; }
+.quote {
+  color: #848484; }
+  .quote p {
+    margin: 2em auto;
+    width: 10em;
+    text-align: center;
+    font-size: 2.4em;
+    line-height: 1.2em;
+    font-style: italic; }
+    .quote p:before {
+      content: '"'; }
+    .quote p:after {
+      content: '"'; }
 
 #find,
 #start,
@@ -275,6 +284,11 @@ p {
     #interact h1 b,
     #monitor h1 b {
       font-weight: 700; }
+  #find p,
+  #start p,
+  #interact p,
+  #monitor p {
+    margin-bottom: 1.1em; }
   #find a.top,
   #start a.top,
   #interact a.top,
@@ -282,13 +296,25 @@ p {
     display: none; }
 
 #find h1 {
-  color: #f18609; }
+  color: #d6974d; }
 
 #start h1 {
-  color: #ac3014; }
+  color: #ae503b; }
 
 #interact h1 {
-  color: #2dac1c; }
+  color: #52ab46; }
 
 #monitor h1 {
+  color: #9bcbdb; }
+
+#quote-1 {
+  color: #f18609; }
+
+#quote-2 {
+  color: #ac3014; }
+
+#quote-3 {
+  color: #2dac1c; }
+
+#quote-4 {
   color: #63c9eb; }

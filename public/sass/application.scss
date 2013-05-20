@@ -68,8 +68,8 @@ p {
     margin: $masthead-height 0 2em;
     position: relative;
     padding: 1.4em 0;
-    background: url(../img/pitch-back-mock.png) no-repeat center;
-    background-size: 100% auto;
+    // background: url(../img/pitch-back-mock.png) no-repeat center;
+    // background-size: 100% auto;
     
     
     img {
@@ -243,8 +243,26 @@ p {
     }
 }
 
-.question {
-    display: none;
+.quote {
+
+    color: darken($col-grey, 20%);
+
+    p {
+        margin: 2em auto;
+        width: 10em;
+        text-align: center;
+        font-size: 2.4em;
+        line-height: 1.2em;
+        font-style: italic;
+        
+        &:before {
+            content: '"';
+        }
+
+        &:after {
+            content: '"';
+        }
+    }
 }
 
 #find,
@@ -264,7 +282,7 @@ p {
 
     h1 {
         margin-bottom: 0.6em;
-
+        
         font: {
             size: 1.6em;
             weight: 600;
@@ -275,24 +293,46 @@ p {
         }
     }
 
+    p {
+        margin-bottom: 1.1em;
+    }
+
     a.top {
         display: none;
     }
     
 }
 
+@mixin easecolour($col) {
+    color: lighten(desaturate($col, 30%), 8%);
+}
+
+
 #find h1 {
+    @include easecolour($col-orange);
+}
+#start h1 {
+    @include easecolour($col-red);
+}
+#interact h1 {
+    @include easecolour(darken($col-green, 5%));
+}
+#monitor h1 {
+    @include easecolour($col-blue);
+}
+
+#quote-1 {
     color: $col-orange;
 }
 
-#start h1 {
+#quote-2 {
     color: $col-red;
 }
 
-#interact h1 {
+#quote-3 {
     color: darken($col-green, 5%);
 }
 
-#monitor h1 {
+#quote-4 {
     color: $col-blue;
 }
