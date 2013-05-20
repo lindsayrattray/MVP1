@@ -52,45 +52,127 @@ table {
 
 body {
   font-size: 16px;
-  font-family: "Montserrat"; }
+  font-family: "Source Sans Pro";
+  background-color: white; }
 
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: "Montserrat"; }
+  font-family: "Source Sans Pro"; }
 
 a {
   color: inherit;
   text-decoration: inherit; }
 
+.logotype {
+  font-family: "Raleway";
+  font-weight: 400; }
+  .logotype span:nth-child(1) {
+    color: #63c9eb; }
+  .logotype span:nth-child(2) {
+    color: #f18609; }
+
+.wrap {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 900px; }
+
 #masthead {
+  top: 0;
   width: 100%;
   color: #fff;
-  background-color: #555; }
+  background-color: white;
+  position: fixed;
+  *zoom: 1;
+  z-index: 10;
+  height: 3.4em;
+  line-height: 3.4em; }
+  #masthead:before, #masthead:after {
+    content: " ";
+    display: table; }
+  #masthead:after {
+    clear: both; }
+  #masthead h1,
+  #masthead .tagline {
+    display: inline-block; }
   #masthead h1 {
-    font-family: "Montserrat"; }
+    font-size: 1.6em;
+    text-transform: lowercase;
+    margin: 0 0.6rem 0 0; }
+  #masthead .tagline {
+    font-size: 1.1em;
+    color: #b7b7b7; }
 
 #pitch {
+  margin: 3.4em 0 2em;
   position: relative;
-  padding: 1.4em;
-  font-family: "Montserrat";
-  font-size: 3.2em;
-  letter-spacing: 0.04em; }
+  padding: 1.4em 0;
+  background: url(../img/pitch-back-mock.png) no-repeat center;
+  background-size: 100% auto; }
   #pitch img {
     display: block;
-    margin: 1em 0;
+    width: 90%;
+    margin: 1.4em auto 1em; }
+  #pitch h1,
+  #pitch h2 {
     width: 100%;
-    height: 3em; }
-  #pitch a[href="#info"] {
+    text-align: center;
+    font-size: 2.6em;
+    font-weight: 900;
+    letter-spacing: 0em; }
+  #pitch h3 {
+    width: 100%;
+    text-align: center;
+    margin: 1em auto 0.6em;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #ac3014; }
+  #pitch form {
+    *zoom: 1;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative; }
+    #pitch form:before, #pitch form:after {
+      content: " ";
+      display: table; }
+    #pitch form:after {
+      clear: both; }
+  #pitch input {
     display: block;
-    float: right;
-    height: 1.4em;
-    line-height: 1.4em;
-    font-size: 2rem;
-    letter-spacing: 0;
-    color: #fff;
-    background-color: #444;
-    text-indent: 0;
-    padding: 0 0.4em; }
+    position: absolute;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: "Source Sans Pro";
+    font-size: 1.4rem;
+    top: 0;
+    bottom: 0; }
+    #pitch input:focus {
+      outline: none; }
+    #pitch input[type="email"] {
+      left: 0;
+      right: 90px;
+      background-color: #fff;
+      border: 1px solid #b7b7b7;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      padding: 0 1em; }
+    #pitch input[type="submit"] {
+      width: 90px;
+      right: 0;
+      text-align: center;
+      font-size: 0.96em;
+      background-color: #9aec8f;
+      background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9aec8f), color-stop(5%, #2dac1c), color-stop(60%, #279619), color-stop(95%, #279619), color-stop(100%, black));
+      background-image: -webkit-linear-gradient(top, #9aec8f 0%, #2dac1c 5%, #279619 60%, #279619 95%, black 100%);
+      background-image: linear-gradient(to bottom,#9aec8f 0%, #2dac1c 5%, #279619 60%, #279619 95%, black 100%);
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.6);
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      color: #fff;
+      cursor: pointer; }

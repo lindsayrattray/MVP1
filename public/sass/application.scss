@@ -1,68 +1,167 @@
-body
-{
-    font:
-    {
+body {
+    font: {
         size: 16px;
         family: $font-body;
     }
+
+    background-color: $col-page;
 }
 
 h1,
 h2,
 h3,
 h4,
-h5
-{
+h5 {
     font-family: $font-display;
 }
 
-a
-{
+a {
     color: inherit;
     text-decoration: inherit;
 }
 
+.logotype {
+    font: {
+        family: $font-logotype;
+        weight: 400;
+    }
+
+    span:nth-child(1) {
+        color: $col-logo-primary;
+    }
+
+    span:nth-child(2) {
+        color: $col-logo-secondary;
+    }    
+}
+
+.wrap {
+    width: $content-width;
+    margin: 0 auto;
+    max-width: $content-max-width;
+}
+
 #masthead {
+    top: 0;
     width: 100%;
     color: #fff;
-    background-color: #555;
+    background-color: rgba(#fff, 1);
+    position: fixed;
+    @include clearfix;
+    z-index: 10;
+    height: $masthead-height;
+    line-height: $masthead-height;
+
+    h1,
+    .tagline {
+        display: inline-block;
+    }
+
     h1 {
         font: {
-            family: $font-body;
-        };    
+            size: 1.6em;
+        }
+        text-transform: lowercase;
+        margin: 0 0.6rem 0 0;
+    }
+
+    .tagline {
+        font-size: 1.1em;
+        color: #b7b7b7;
     }
 }
 
 #pitch {
+    margin: $masthead-height 0 2em;
     position: relative;
-    padding: 1.4em;
-    font: {
-        family: $font-display;
-        size: 3.2em;
-    };
-    letter-spacing: 0.04em;
-
+    padding: 1.4em 0;
+    background: url(../img/pitch-back-mock.png) no-repeat center;
+    background-size: 100% auto;
+    
+    
     img {
         display: block;
-        margin: 1em 0;
+        width: $content-width;
+        margin: 1.4em auto 1em;
+    }
+
+    h1,
+    h2 {
         width: 100%;
-        height: 3em;
+        text-align: center;
+        font: {
+            size: 2.6em;
+            weight: 900;
+        };
+        letter-spacing: 0em;
     }
 
     h2 {
-        // text-indent: 2em
+
     }
 
-    a[href="#info"] {
-        display: block;
-        float: right;
-        height: 1.4em;
-        line-height: 1.4em;
-        font-size: 2rem;
-        letter-spacing: 0;
-        color: #fff;
-        background-color: #444;
-        text-indent: 0;
-        padding: 0 0.4em;
+    h3 {
+        width: 100%;
+        text-align: center;
+        margin: 1em auto 0.6em;
+        font: {
+            size: 1.6em;
+            weight: 600;
+        }
+        color: $col-red;
     }
+
+    form {
+        @include clearfix;
+        width: 80%;
+        max-width: 400px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    input {
+        display: block;
+        position: absolute;
+        height: 2.6rem;
+        line-height: 2.6rem;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font: {
+            family: $font-body;
+            size: 1.4rem;
+        }
+        top: 0;
+        bottom: 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        $sub-width: 90px;
+
+        &[type="email"] {
+            left: 0;
+            right: $sub-width;
+            background-color: #fff;
+            border: 1px solid #b7b7b7;
+            @include round-left(4px);
+            padding: 0 1em;
+        }
+
+        &[type="submit"] {
+            width: $sub-width;
+            right: 0;
+            text-align: center;
+            font-size: 0.96em; 
+            @include pill-button(darken($col-green, 10%));
+            @include indent-text(0.4,0.6);
+            @include round-right(4px);
+            color: #fff;
+            cursor: pointer;
+
+        }
+    }
+
+
 }
