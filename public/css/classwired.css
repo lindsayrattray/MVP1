@@ -109,17 +109,17 @@ p {
       color: #f18609; }
   #masthead .tagline {
     font-size: 1.1em;
-    color: #b7b7b7; }
+    color: #848484; }
 
 #pitch {
   margin: 3.4em 0 2em;
   position: relative;
-  padding: 1.4em 0 2.5em;
+  padding: 2em 0 2.5em;
   border-bottom: 1px solid #dddddd; }
   #pitch img {
     display: block;
-    width: 90%;
-    margin: 2.6em auto; }
+    width: 72%;
+    margin: 3em auto; }
   #pitch h1,
   #pitch h2 {
     width: 100%;
@@ -206,7 +206,8 @@ p {
   margin-top: 4rem; }
 
 #info {
-  margin-bottom: 4em; }
+  margin-bottom: 4em;
+  position: relative; }
   #info h1 {
     font-size: 1.6em;
     font-weight: 600;
@@ -229,6 +230,29 @@ p {
       -webkit-transition: left 0.4s ease-out;
       -moz-transition: left 0.4s ease-out;
       transition: left 0.4s ease-out; }
+  #info .point-nav-arrow {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 4rem;
+    line-height: 4rem;
+    color: #fff;
+    background-color: rgba(99, 201, 235, 0.8);
+    position: absolute;
+    top: 42%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.4em;
+    opacity: 0.7;
+    -webkit-transition: opacity 0.3s ease-out;
+    -moz-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out; }
+    #info .point-nav-arrow.next {
+      right: 0; }
+    #info .point-nav-arrow.previous {
+      left: 0; }
+    #info .point-nav-arrow:hover {
+      cursor: pointer;
+      opacity: 1; }
   #info .point-nav {
     display: block;
     width: 10em;

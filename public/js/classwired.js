@@ -47,6 +47,14 @@ var classwired = (function(cw) {
         this.point_nav_buttons = this.points_nav.find('.point-nav-indicator').get();
         var self = this;
 
+        $('#info .next').on('click', function() {
+            self.goNextPoint();
+        });
+
+        $('#info .previous').on('click', function() {
+            self.goPreviousPoint();
+        });
+
         var bindClick = function(item, index) {
             $(item).on('click', function() {
                 self.gotoPoint(index);
@@ -73,13 +81,13 @@ var classwired = (function(cw) {
     }
 
     cw.goNextPoint = function() {
-        var next = Math.min(this.point_pages.length - 1, this.curr_point_index + 1);
+        var next = this.curr_point_index + 1 >= this.point_pages.length ? 0 : this.curr_point_index + 1;
 
         this.gotoPoint(next);
     }
 
     cw.goPreviousPoint = function() {
-        var next = Math.max(0, this.curr_point_index - 1);
+        var next = this.curr_point_index - 1 < 0 ? this.point_pages.length - 1 : this.curr_point_index - 1;
 
         this.gotoPoint(next);
     }

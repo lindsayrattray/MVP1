@@ -64,14 +64,14 @@ p {
 
     .tagline {
         font-size: 1.1em;
-        color: #b7b7b7;
+        color: darken($col-grey, 20%);
     }
 }
 
 #pitch {
     margin: $masthead-height 0 2em;
     position: relative;
-    padding: 1.4em 0 2.5em;
+    padding: 2em 0 2.5em;
     // background: url(../img/pitch-back-mock.png) no-repeat center;
     // background-size: 100% auto;
     
@@ -80,8 +80,8 @@ p {
     
     img {
         display: block;
-        width: $content-width;
-        margin: 2.6em auto;
+        width: $content-width * 0.8;
+        margin: 3em auto;
     }
 
     h1,
@@ -195,6 +195,7 @@ p {
 #info {
 
     margin-bottom: 4em;
+    position: relative;
 
     h1 {
         font: {
@@ -223,6 +224,36 @@ p {
             overflow: hidden;
             background-color: $col-page;
             @include transition(left 0.4s ease-out);
+        }
+    }
+
+    .point-nav-arrow {
+        $diam: 4rem;
+        width: $diam;
+        height: $diam;
+        border-radius: $diam;
+        line-height: $diam;
+        color: #fff;
+        background-color: rgba($col-blue, 0.8);
+        position: absolute;
+        top: 42%;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.4em;
+        opacity: 0.7;
+        @include transition(opacity 0.3s ease-out);
+
+        &.next {
+            right: 0;
+        }
+
+        &.previous {
+            left: 0;   
+        }
+
+        &:hover {
+            cursor: pointer;
+            opacity: 1;
         }
     }
 
