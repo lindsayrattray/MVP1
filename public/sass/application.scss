@@ -1,0 +1,248 @@
+:root {
+    font-size: 16px;
+}
+
+body {
+    font: {
+        family: $font-body;
+    }
+
+    background-color: $col-page;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $font-display;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.logotype {
+    font: {
+        family: $font-logotype;
+        weight: 400;
+    }
+
+    span:nth-child(1) {
+        color: $col-logo-primary;
+    }
+
+    span:nth-child(2) {
+        color: $col-logo-secondary;
+    }    
+}
+
+.wrap {
+    width: $content-width;
+    margin: 0 auto;
+    max-width: $content-max-width;
+}
+
+#masthead {
+    top: 0;
+    width: 100%;
+    color: #fff;
+    background-color: rgba(#fff, 1);
+    position: fixed;
+    @include clearfix;
+    z-index: 10;
+    height: $masthead-height;
+    line-height: $masthead-height;
+
+    h1,
+    .tagline {
+        display: inline-block;
+    }
+
+    h1 {
+        font: {
+            size: 1.6em;
+        }
+        text-transform: lowercase;
+        margin: 0 0.6rem 0 0;
+    }
+
+    .tagline {
+        font-size: 1.1em;
+        color: #b7b7b7;
+    }
+}
+
+#pitch {
+    margin: $masthead-height 0 2em;
+    position: relative;
+    padding: 1.4em 0;
+    background: url(../img/pitch-back-mock.png) no-repeat center;
+    background-size: 100% auto;
+    
+    
+    img {
+        display: block;
+        width: $content-width;
+        margin: 1.4em auto 1em;
+    }
+
+    h1,
+    h2 {
+        width: 100%;
+        text-align: center;
+        font: {
+            size: 2.6em;
+            weight: 900;
+        };
+        letter-spacing: 0em;
+    }
+
+    h2 {
+
+    }
+
+    h3 {
+        width: 100%;
+        text-align: center;
+        margin: 1em auto 0.6em;
+        font: {
+            size: 1.6em;
+            weight: 600;
+        }
+        color: $col-red;
+    }
+
+    form {
+        @include clearfix;
+        width: 80%;
+        max-width: 400px;
+        margin: 0 auto;
+        position: relative;
+        height: 2.6rem;
+    }
+
+    input {
+        display: block;
+        position: absolute;
+        height: 100%;
+        line-height: 2.6rem;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font: {
+            family: $font-body;
+            size: 1.4rem;
+        }
+        top: 0;
+        bottom: 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        $sub-width: 5rem;
+
+        &[type="email"] {
+            left: 0;
+            right: $sub-width;
+            background-color: #fff;
+            border: 1px solid lighten($col-grey, 10%);
+            @include round-left(4px);
+            padding: 0 1em;
+            @include transition(all 0.2s ease-out);
+
+            &:focus {
+                border-color: $col-grey;
+                box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            }
+        }
+
+        &[type="submit"] {
+            width: $sub-width;
+            right: 0;
+            text-align: center;
+            font-size: 0.96em; 
+            @include pill-button(darken($col-green, 10%));
+            @include indent-text(0.4,0.6);
+            @include round-right(4px);
+            color: #fff;
+            cursor: pointer;
+
+        }
+    }
+
+}
+
+.content {
+    margin-top: 4rem;
+}
+
+#info {
+
+    margin-bottom: 4em;
+
+    h1 {
+        font: {
+            size: 1.6em;
+            weight: 600;
+        }
+        margin: 0 0 1.2em 0;
+    }
+
+    .point-container {
+        display: block;
+        width: 100%;
+        height: 16rem;
+        overflow: hidden;
+        position: relative;
+
+
+        li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            overflow: hidden;
+            background-color: $col-page;
+            @include transition(left 0.8s ease-out);
+        }
+    }
+
+    .point-nav {
+        display: block;
+        width: 10em;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .point-nav-indicator {
+        display: inline-block;
+        overflow: hidden;
+        width: 1rem;
+        height: 1rem;
+        background-color: #000;
+        border-radius: 1rem;
+        text-indent: -99999px;
+        cursor: pointer;
+        @include transition(background-color 0.4s ease-out);
+
+        &.current {
+            background-color: $col-blue;
+        }
+    }
+
+}
+
+#howitworks {
+    position: relative;
+
+    > h1 {
+        font: {
+            size: 1.6em;
+            weight: 600;
+        }
+        margin: 0 0 1.2em 0;
+    }
+}
