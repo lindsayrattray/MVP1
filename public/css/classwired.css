@@ -55,7 +55,8 @@ table {
 
 body {
   font-family: "Source Sans Pro";
-  background-color: white; }
+  background-color: white;
+  min-width: 320px; }
 
 h1,
 h2,
@@ -70,9 +71,6 @@ a {
 
 p {
   line-height: 1.4em; }
-
-.balance-text {
-  text-wrap: balanced; }
 
 .wrap {
   width: 90%;
@@ -378,3 +376,61 @@ p {
 
 #quote-4 {
   color: #63c9eb; }
+
+@media screen and (max-width: 750px) {
+  #pitch img {
+    margin: 1.4em auto; }
+  #pitch h2 {
+    margin-bottom: 1em; }
+  #pitch h3,
+  #pitch form {
+    float: none;
+    clear: both; }
+  #pitch h3 {
+    margin-top: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center; }
+  #pitch form {
+    -webkit-transition: width 0.2s ease-out;
+    -moz-transition: width 0.2s ease-out;
+    transition: width 0.2s ease-out;
+    width: 80%;
+    margin: 1rem auto; }
+  #pitch input[type="email"] {
+    left: 1rem; }
+  #pitch #submit {
+    right: 0; } }
+@media screen and (max-width: 560px) {
+  :root {
+    font-size: 13px; } }
+@media screen and (max-width: 450px) {
+  #masthead .tagline {
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+    opacity: 0; }
+
+  #pitch {
+    padding: 1em 0; }
+    #pitch form {
+      height: auto;
+      margin-bottom: 0; }
+    #pitch input[type="email"],
+    #pitch #submit {
+      position: relative;
+      margin: 0 auto;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto; }
+    #pitch input[type="email"] {
+      width: 16rem;
+      left: 50%;
+      margin-left: -8rem; }
+    #pitch #submit {
+      margin-top: 1rem; }
+
+  #info .point-nav-arrow {
+    top: auto;
+    bottom: -6%; } }

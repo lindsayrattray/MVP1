@@ -8,6 +8,7 @@ body {
     }
 
     background-color: $col-page;
+    min-width: 320px;
 }
 
 h1,
@@ -25,10 +26,6 @@ a {
 
 p {
     line-height: 1.4em;
-}
-
-.balance-text {
-    text-wrap: balanced;
 }
 
 .wrap {
@@ -72,10 +69,6 @@ p {
     margin: $masthead-height 0 2em;
     position: relative;
     padding: 2em 0 2.5em;
-    // background: url(../img/pitch-back-mock.png) no-repeat center;
-    // background-size: 100% auto;
-    
-
     border-bottom: 1px solid #ddd;
     
     img {
@@ -417,9 +410,92 @@ p {
     color: $col-blue;
 }
 
-@media screen and (max-width: 773px) {
+@media screen and (max-width: 750px) {
+    #pitch {
+        
+        img {
+            margin: 1.4em auto;
+        }
+
+        h2 {
+            margin-bottom: 1em;
+        }
+
+        h3,
+        form {
+            float: none;
+            clear: both;
+        }
+
+        h3 {
+            margin-top: 0;
+            padding: 0;
+            width: 100%;
+            text-align: center;
+        }
+        form {
+            @include transition(width 0.2s ease-out);
+            width: 80%;
+            margin: 1rem auto;
+        }
+
+        input[type="email"] {
+            left: 1rem;
+        }
+
+        #submit {
+            right: 0;
+        }
+    }
 }
-  
-  
-@media screen and (max-width: 590px) {
+
+
+@media screen and (max-width: 560px) {
+    :root {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #masthead {
+        .tagline {
+            @include transition(opacity 0.2s ease-out);
+            opacity: 0;
+        }
+    }
+
+    #pitch {
+        padding: 1em 0;
+
+        form {
+            height: auto;
+            margin-bottom: 0;
+        }
+
+        input[type="email"],
+        #submit {
+            position: relative;
+            margin: 0 auto;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: auto;
+        }
+
+        input[type="email"] {
+            width: 16rem;
+            left: 50%;
+            margin-left: -8rem;
+        }
+
+        #submit {
+            margin-top: 1rem;
+        }
+    }
+
+    #info .point-nav-arrow {
+        top: auto;
+        bottom: -6%;
+    }
+
 }
