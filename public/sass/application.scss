@@ -245,6 +245,9 @@ p {
         line-height: $diam;
         color: #fff;
         background-color: rgba($col-blue, 0.8);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 1.4rem;
         position: absolute;
         top: 42%;
         text-align: center;
@@ -255,10 +258,12 @@ p {
 
         &.next {
             right: 0;
+            background-image: url(../img/navarrows-right.png);
         }
 
         &.previous {
             left: 0;   
+            background-image: url(../img/navarrows-left.png);
         }
 
         &:hover {
@@ -454,6 +459,24 @@ p {
     :root {
         font-size: 13px;
     }
+
+    #find,
+    #start,
+    #interact,
+    #monitor {
+        width: 60%;
+        margin: 1em auto;
+    }
+
+    #monitor {
+        margin-bottom: 3em;
+    }
+
+    .quote {
+        margin: 1.3em auto;
+    }
+    
+
 }
 
 @media screen and (max-width: 450px) {

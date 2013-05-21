@@ -249,6 +249,9 @@ p {
     line-height: 4rem;
     color: #fff;
     background-color: rgba(99, 201, 235, 0.8);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 1.4rem;
     position: absolute;
     top: 42%;
     text-align: center;
@@ -259,9 +262,11 @@ p {
     -moz-transition: opacity 0.3s ease-out;
     transition: opacity 0.3s ease-out; }
     #info .point-nav-arrow.next {
-      right: 0; }
+      right: 0;
+      background-image: url(../img/navarrows-right.png); }
     #info .point-nav-arrow.previous {
-      left: 0; }
+      left: 0;
+      background-image: url(../img/navarrows-left.png); }
     #info .point-nav-arrow:hover {
       cursor: pointer;
       opacity: 1; }
@@ -403,7 +408,20 @@ p {
     right: 0; } }
 @media screen and (max-width: 560px) {
   :root {
-    font-size: 13px; } }
+    font-size: 13px; }
+
+  #find,
+  #start,
+  #interact,
+  #monitor {
+    width: 60%;
+    margin: 1em auto; }
+
+  #monitor {
+    margin-bottom: 3em; }
+
+  .quote {
+    margin: 1.3em auto; } }
 @media screen and (max-width: 450px) {
   #masthead .tagline {
     -webkit-transition: opacity 0.2s ease-out;
