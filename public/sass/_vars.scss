@@ -1,5 +1,5 @@
 
-$font-logotype: 'Raleway';
+$font-logotype: 'Raleway', 'Raleway Medium', sans-serif;
 $font-body: 'Source Sans Pro';
 $font-display: $font-body;
 
@@ -39,7 +39,7 @@ $masthead-height: 3.4em;
     @include linear-gradient(top, lighten($basecol, 40%) 0%, lighten($basecol, 5%) 5%, $basecol 60%, $basecol 95%, darken($basecol, 40%) 100%);
 }
 
-@mixin indent-text($sh, $hi) {
+@mixin inset-text($sh, $hi) {
     text-shadow: 0 -1px 0 rgba(0,0,0,$sh), 0 1px 0 rgba(255,255,255,$hi);
 }
 

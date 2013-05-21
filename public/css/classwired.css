@@ -98,7 +98,7 @@ p {
   #masthead .tagline {
     display: inline-block; }
   #masthead h1 {
-    font-family: "Raleway";
+    font-family: "Raleway", "Raleway Medium", sans-serif;
     font-weight: 500;
     font-size: 1.6em;
     text-transform: lowercase;
@@ -131,7 +131,7 @@ p {
     margin-bottom: 1.4em; }
   #pitch .call {
     width: 90%;
-    max-width: 77.4%;
+    max-width: 90%;
     margin: 1em auto 0.6em;
     *zoom: 1; }
     #pitch .call:before, #pitch .call:after {
@@ -142,7 +142,7 @@ p {
   #pitch h3 {
     display: block;
     text-align: right;
-    width: 49%;
+    width: 40%;
     float: left;
     padding-right: 1rem;
     margin-top: 0.2em;
@@ -151,7 +151,7 @@ p {
     color: #279619; }
   #pitch form {
     *zoom: 1;
-    width: 51%;
+    width: 60%;
     float: right;
     position: relative;
     height: 2.6rem; }
@@ -160,7 +160,8 @@ p {
       display: table; }
     #pitch form:after {
       clear: both; }
-  #pitch input {
+  #pitch input,
+  #pitch #submit {
     display: block;
     position: absolute;
     height: 100%;
@@ -169,14 +170,16 @@ p {
     padding: 0;
     margin: 0;
     font-family: "Source Sans Pro";
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     top: 0;
     bottom: 0; }
-    #pitch input:focus {
+    #pitch input:focus,
+    #pitch #submit:focus {
       outline: none; }
-    #pitch input[type="email"] {
+    #pitch input[type="email"],
+    #pitch #submit[type="email"] {
       left: 0;
-      right: 5.2rem;
+      right: 2.5rem;
       color: #000;
       background-color: #f4f4f4;
       border: 1px solid white;
@@ -185,22 +188,23 @@ p {
       -webkit-transition: all 0.2s ease-out;
       -moz-transition: all 0.2s ease-out;
       transition: all 0.2s ease-out; }
-      #pitch input[type="email"]:focus {
+      #pitch input[type="email"]:focus,
+      #pitch #submit[type="email"]:focus {
         background-color: #f9f9f9;
         border-color: #eaeaea; }
-    #pitch input[type="submit"] {
-      width: 5rem;
-      height: 5rem;
-      line-height: 5rem;
-      border-radius: 5rem;
-      right: 0;
-      text-align: center;
-      font-size: 1.6em;
-      font-weight: 700;
-      margin-top: -1.13636rem;
-      background-color: #279619;
-      color: #fff;
-      cursor: pointer; }
+  #pitch #submit {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    border-radius: 5rem;
+    right: 2.5rem;
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-top: -1.13636rem;
+    background-color: #279619;
+    color: #fff;
+    cursor: pointer; }
 
 .content {
   margin-top: 4rem; }
@@ -293,13 +297,15 @@ p {
     text-align: center; }
 
 .quote {
-  color: #848484; }
+  margin: 2em auto;
+  color: #848484;
+  width: 80%;
+  max-width: 10em;
+  font-size: 2.4em; }
   .quote p {
-    margin: 2em auto;
-    width: 10em;
-    text-align: center;
-    font-size: 2.4em;
+    margin: 0;
     line-height: 1.2em;
+    text-align: center;
     font-style: italic; }
     .quote p:before {
       content: '\201C'; }

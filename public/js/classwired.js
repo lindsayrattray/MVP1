@@ -15,9 +15,13 @@ var classwired = (function(cw) {
         var self = this;
 
         this.reg_form.on('submit', function(e) {
-            console.log('hi');
             e.preventDefault();
             self.submitEmail();
+        });
+
+        $('#submit').on('click', function(e) {
+            e.preventDefault();
+            self.reg_form.submit();
         });
     }
 
