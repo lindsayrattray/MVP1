@@ -56,7 +56,8 @@ table {
 body {
   font-family: "Source Sans Pro", sans-serif;
   background-color: white;
-  min-width: 320px; }
+  min-width: 320px;
+  overflow-x: hidden; }
 
 h1,
 h2,
@@ -110,7 +111,7 @@ p {
     color: #848484; }
 
 #pitch {
-  margin: 3.4em 0 2em;
+  margin: 3.4em 0 0;
   position: relative;
   padding: 2em 0 2.5em;
   border-bottom: 1px solid #dddddd; }
@@ -183,9 +184,9 @@ p {
       border: 1px solid white;
       border-radius: 4px;
       padding: 0 0.6em;
-      -webkit-transition: all 0.2s ease-out;
-      -moz-transition: all 0.2s ease-out;
-      transition: all 0.2s ease-out; }
+      -webkit-transition: all 0.3s ease-out;
+      -moz-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out; }
       #pitch input[type="email"]:focus,
       #pitch #submit[type="email"]:focus {
         background-color: #f9f9f9;
@@ -197,12 +198,115 @@ p {
     border-radius: 5rem;
     right: 2.5rem;
     text-align: center;
+    overflow: hidden;
     font-size: 1.6em;
     font-weight: 700;
     margin-top: -1.13636rem;
     background-color: #279619;
     color: #fff;
-    cursor: pointer; }
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; }
+  #pitch form.waiting #submit {
+    text-indent: 7rem; }
+    #pitch form.waiting #submit:after {
+      content: ' ';
+      width: 40%;
+      height: 40%;
+      top: 30%;
+      left: 30%;
+      position: absolute;
+      background: transparent url(../img/spinner.png) no-repeat center;
+      background-size: 100% auto;
+      -webkit-animation: fadein-anim 0.4s ease-out, spin-anim 1.4s infinite linear;
+      -moz-animation: fadein-anim 0.4s ease-out, spin-anim 1.4s infinite linear;
+      animation: fadein-anim 0.4s ease-out, spin-anim 1.4s infinite linear; }
+  #pitch form.waiting input[type="email"] {
+    opacity: 0; }
+
+@-webkit-keyframes fadein-anim {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@-moz-keyframes fadein-anim {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@-o-keyframes fadein-anim {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@keyframes fadein-anim {
+  from {
+    opacity: 0; }
+
+  to {
+    opacity: 1; } }
+
+@-webkit-keyframes spin-anim {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@-moz-keyframes spin-anim {
+  from {
+    -moz-transform: rotate(0deg); }
+
+  to {
+    -moz-transform: rotate(360deg); } }
+
+@-o-keyframes spin-anim {
+  from {
+    -o-transform: rotate(0deg); }
+
+  to {
+    -o-transform: rotate(360deg); } }
+
+@keyframes spin-anim {
+  from {
+    transform: rotate(0deg); }
+
+  to {
+    transform: rotate(360deg); } }
+
+#response-message {
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+  border-bottom: 1px solid white;
+  color: #fff;
+  background-color: white;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out; }
+  #response-message p {
+    width: 60%;
+    font-size: 1.6em;
+    padding: 1em 0;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1.1em; }
+  #response-message.success, #response-message.error {
+    border-bottom: 1px solid #dddddd;
+    height: auto;
+    max-height: 10em; }
+  #response-message.error {
+    background-color: #da3d19; }
+  #response-message.success {
+    background-color: #279619; }
 
 .content {
   margin-top: 4rem; }

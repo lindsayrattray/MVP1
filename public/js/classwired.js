@@ -6,6 +6,9 @@ var classwired = (function(cw) {
     cw.points_nav = $("#info .point-nav");
     cw.curr_point_index = 0;
 
+    cw.form_success_msg = '<p>Thank you for registering!</p>';
+    cw.form_error_msg = '<p>Oops! An error occured, please try again soon.</p>';
+
     cw.init = function() {
         this.setupRegForm();
         this.setupPoints();
@@ -15,8 +18,15 @@ var classwired = (function(cw) {
         var self = this;
 
         this.reg_form.on('submit', function(e) {
+            $(this).addClass('waiting');
             e.preventDefault();
             self.submitEmail();
+        });
+
+        this.reg_form.find('input').each(function() {
+            $(this).on('focus', function() {
+                self.clearFormState();
+            });
         });
 
         $('#submit').on('click', function(e) {
@@ -30,20 +40,32 @@ var classwired = (function(cw) {
             url: 'app/register',
             method: 'post',
             data: this.reg_form.serialize(),
+            timeout: 2000,
             context: this
         }).done(function(response){
             this.onRegSuccess(response);
         }).fail(function(response){
             this.onRegFail(response);
+        }).always(function(){
+            this.reg_form.removeClass('waiting');
         });
     }
 
     cw.onRegSuccess = function(response) {
-        alert('Thanks for registering!');
+        $('#response-message').html(this.form_success_msg);
+        $('#response-message').addClass('success');
+        $('#submit').html('&#10004;');
     }
 
     cw.onRegFail = function(response) {
-        alert('Sorry, there was an error. Please try again soon.');
+        $('#response-message').html(this.form_error_msg);
+        $('#response-message').addClass('error');
+    }
+
+    cw.clearFormState = function() {
+        $('#response-message').removeClass('success');
+        $('#response-message').removeClass('error');
+        $('#submit').html('Yes!');   
     }
 
     cw.setupPoints = function() {
