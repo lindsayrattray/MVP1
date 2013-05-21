@@ -40,13 +40,15 @@ var classwired = (function(cw) {
             url: 'app/register',
             method: 'post',
             data: this.reg_form.serialize(),
+            dataType: 'json',
             timeout: 2000,
             context: this
         }).done(function(response){
             this.onRegSuccess(response);
         }).fail(function(response){
             this.onRegFail(response);
-        }).always(function(){
+        }).always(function(response){
+            console.log(response);
             this.reg_form.removeClass('waiting');
         });
     }

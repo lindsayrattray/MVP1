@@ -3,7 +3,6 @@ require 'bundler/setup'
 require 'sinatra'
 require 'erb'
 require 'json'
-require 'pony'
 
 # def tobsonid(id) BSON::ObjectId.fromstring(id) end 
 # def frombsonid(obj) obj.merge({'id' => obj['id'].tos}) end
@@ -13,10 +12,14 @@ get '/' do
 end
 
 post '/app/register' do
+    require 'pony'
+    
     Pony.mail(
         :to  => 'lindsayrattray@yahoo.com',
         :subject => 'ClassWired registration',
         :body => params[:email],
         :from => 'lindsayrattray@yahoo.com'
     )
+    content_type :json
+    { :sent => 'success' }.to_json
 end
