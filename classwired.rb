@@ -27,13 +27,15 @@ post '/app/register' do
 
 
     recipient = params[:email] # this is bizarrely necessary
-    Mail.deliver do
+    mailObject = nil
+    mailObject = Mail.deliver do
            to 'lindsayrattray@yahoo.com'
          from 'lindsayrattray@gmail.com'
       subject 'ClassWired registration'
          body recipient
     end
-
-    content_type :json
-    { :sent => 'success' }.to_json
+    if mailObject then # this is unnecessary and doesn't have the effect it should
+        content_type :json
+        { sent: 'success' }.to_json
+    end
 end
