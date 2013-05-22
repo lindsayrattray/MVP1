@@ -14,8 +14,6 @@ GEM
       bourbon (>= 2.1)
       sass (>= 3.2)
     polyglot (0.3.3)
-    pony (1.4.1)
-      mail (> 2.0)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -36,6 +34,6 @@ PLATFORMS
 DEPENDENCIES
   erubis
   json
+  mail
   neat
-  pony
   sinatra

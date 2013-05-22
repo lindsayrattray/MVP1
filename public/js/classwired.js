@@ -48,7 +48,7 @@ var classwired = (function(cw) {
         }).fail(function(response){
             this.onRegFail(response);
         }).always(function(response){
-            console.log(response);
+            if(window.console) console.log(response);
             this.reg_form.removeClass('waiting');
         });
     }
