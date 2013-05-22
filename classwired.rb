@@ -17,7 +17,7 @@ post '/app/register' do
     Pony.mail(
         :to  => 'lindsayrattray@yahoo.com',
         :subject => 'ClassWired registration',
-        :body => "hello", #params[:email],
+        :body => params[:email],
         :from => 'lindsayrattray@yahoo.com',
         :via => :smtp,
         :via_options => {
