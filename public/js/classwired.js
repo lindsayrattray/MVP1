@@ -31,6 +31,7 @@ var classwired = (function(cw) {
 
         $('#submit').on('click', function(e) {
             e.preventDefault();
+            self.clearFormState();
             self.reg_form.submit();
         });
     }
@@ -41,7 +42,6 @@ var classwired = (function(cw) {
             method: 'post',
             data: this.reg_form.serialize(),
             dataType: 'json',
-            timeout: 2000,
             context: this
         }).done(function(response){
             this.onRegSuccess(response);
