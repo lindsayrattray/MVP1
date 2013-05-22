@@ -19,18 +19,19 @@ post '/app/register' do
         :subject => 'ClassWired registration',
         :body => params[:email],
         :from => 'lindsayrattray@yahoo.com',
+        :port => '587',
         :via => :smtp,
-        :via_options => {
-            :address => 'smtp.sendgrid.net',
-            :port => '587',
-            :domain => ENV['SENDGRID_DOMAIN']
-            :user_name => ENV['SENDGRID_USERNAME'],
-            :password => ENV['SENDGRID_PASSWORD'],
-            :authentication => :plain,
-            :enable_starttls_auto => true
+        :via_options => { 
+            :address              => 'smtp.sendgrid.net', 
+            :port                 => '587', 
+            :enable_starttls_auto => true, 
+            :user_name            => ENV['SENDGRID_USERNAME'], 
+            :password             => ENV['SENDGRID_PASSWORD'], 
+            :authentication       => :plain, 
+            :domain               => ENV['SENDGRID_DOMAIN']
         }
-        
     )
+
     content_type :json
     { :sent => 'success' }.to_json
 end
