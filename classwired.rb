@@ -24,11 +24,14 @@ post '/app/register' do
     Mail.defaults do
       delivery_method :smtp, options
     end
+
+
+    recipient = params[:email] # this is bizarrely necessary
     Mail.deliver do
            to 'lindsayrattray@yahoo.com'
          from 'lindsayrattray@gmail.com'
-      subject 'testing sendmail'
-         body 'testing sendmail'
+      subject 'ClassWired registration'
+         body recipient
     end
 
     content_type :json
