@@ -27,7 +27,7 @@ post '/app/register' do
             :user_name => ENV['SENDGRID_USERNAME'],
             :password => ENV['SENDGRID_PASSWORD'],
             :authentication => :plain,
-            :enable_starttls_auto => false
+            :enable_starttls_auto => true
         }
         
     )
