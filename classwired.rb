@@ -17,8 +17,8 @@ post '/app/register' do
     options = { :address          => "smtp.gmail.com",
             :port                 => 587,
             :domain               => 'heroku.com',
-            :user_name            => ENV['GMAIL_USERNAME'],
-            :password             => ENV['GMAIL_PASSWORD'],
+            :user_name            => 'lindsayrattray',#ENV['GMAIL_USERNAME'],
+            :password             => 'himan123',#ENV['GMAIL_PASSWORD'],
             :authentication       => 'plain',
             :enable_starttls_auto => true  }
     Mail.defaults do
