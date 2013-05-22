@@ -18,7 +18,7 @@ post '/app/register' do
         :to  => 'lindsayrattray@yahoo.com',
         :subject => 'ClassWired registration',
         :body => params[:email],
-        :from => 'lindsayrattray@yahoo.com'
+        :from => 'lindsayrattray@yahoo.com',
         :via => :smtp,
         :via_options => {
             :address => 'smtp.sendgrid.net',
