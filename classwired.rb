@@ -19,7 +19,7 @@ post '/app/register' do
         :port                 => 587,
         :domain               => 'heroku.com',
         :user_name            => 'classwired',#ENV['GMAIL_USERNAME'],
-        :password             => 'Gtruckers1l',#ENV['GMAIL_PASSWORD'],
+        :password             => 'Gtruckers1e',#ENV['GMAIL_PASSWORD'],
         :authentication       => 'plain',
         :enable_starttls_auto => true
     }
