@@ -38,10 +38,10 @@ post '/app/register' do
                 body recipient
             end
 
-        content_type :json
-        { sent: 'success' }.to_json
+        #content_type :json
+        #{ sent: 'success' }.to_json
 
-        rescue
-        halt 500
+        #rescue
+        #halt 500
     end
 end
