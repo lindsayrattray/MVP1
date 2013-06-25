@@ -17,10 +17,10 @@ post '/app/register' do
     options = {
         :address              => "smtp.gmail.com",
         :port                 => 587,
-        :domain               => 'classwired.com',
+        :domain               => 'heroku.com',
         :user_name            => 'classwired',#ENV['GMAIL_USERNAME'],
         :password             => 'Gtruckers1e',#ENV['GMAIL_PASSWORD'],
-        :authentication       => 'plain',
+        :authentication       => :plain
         :enable_starttls_auto => true
     }
     
