@@ -32,7 +32,7 @@ post '/app/register' do
 
     begin
         mailObject = Mail.deliver do
-            from 'lindsayrattray@gmail.com'
+            from 'classwired@gmail.com'
             to 'lindsayrattray@yahoo.com'
             subject 'ClassWired registration'
             body recipient
