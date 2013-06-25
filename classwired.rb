@@ -17,6 +17,7 @@ post '/app/register' do
     options = {
         :address              => "smtp.gmail.com",
         :port                 => 587,
+        :domain               => 'localhost.localdomain',
         :user_name            => 'classwired',#ENV['GMAIL_USERNAME'],
         :password             => 'Gtruckers1e',#ENV['GMAIL_PASSWORD'],
         :authentication       => 'plain',
