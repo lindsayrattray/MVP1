@@ -28,7 +28,7 @@ post '/app/register' do
         delivery_method :smtp, options
     end
 
-    recipient = "lindsayrattray@yahoo.com" # test if this is the problem params[:email] # this is bizarrely necessary
+    recipient = params[:email] # this is bizarrely necessary
 
     begin
             mailObject = Mail.deliver do
@@ -37,11 +37,10 @@ post '/app/register' do
                 subject 'ClassWired registration'
                 body recipient
             end
-
-        #content_type :json
-        #{ sent: 'success' }.to_json
-
-        #rescue
-        #halt 500
     end
+            content_type :json
+        { sent: 'success' }.to_json
+
+        rescue
+        halt 500
 end
