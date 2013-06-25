@@ -31,16 +31,17 @@ post '/app/register' do
     recipient = params[:email] # this is bizarrely necessary
 
     begin
-            mailObject = Mail.deliver do
-                from 'classwired@gmail.com'
-                to 'lindsayrattray@yahoo.com'
-                subject 'ClassWired registration'
-                body recipient
-            end
-    end
-            content_type :json
+        mailObject = Mail.deliver do
+            from 'classwired@gmail.com'
+            to 'lindsayrattray@yahoo.com'
+            subject 'ClassWired registration'
+            body recipient
+        end
+
+        content_type :json
         { sent: 'success' }.to_json
 
         rescue
         halt 500
+    end
 end
