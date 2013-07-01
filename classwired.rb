@@ -38,9 +38,6 @@ post '/app/register' do
             body recipient
         end
 
-        puts "hello" # test if it's working
-        puts mail.to_s #=>
-
         content_type :json
         { sent: 'success' }.to_json
 
