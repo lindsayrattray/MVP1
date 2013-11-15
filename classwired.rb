@@ -4,13 +4,25 @@ require 'sinatra'
 require 'erb'
 require 'json'
 
-# def tobsonid(id) BSON::ObjectId.fromstring(id) end 
-# def frombsonid(obj) obj.merge({'id' => obj['id'].tos}) end
+# mailchimp integration variables
+MAILCHIMP_API_KEY = '1ba7966ebde9df6b1e75da88f1063581-us7'
 
-get '/' do
-    erb :index
+def build_mailchimp_api_url_from_key(mailchimp_api_key)
+    parts = mailchimp_api_key.split('-')
+    return 'https://%s.api.mailchimp.com/2.0/' % parts.last
 end
 
+get '/' do
+    mailchimp_api_key = MAILCHIMP_API_KEY
+    mailchimp_api_url = build_mailchimp_api_url_from_key(mailchimp_api_key)
+
+    erb :index, locals: {
+                    mailchimp_api_key: mailchimp_api_key,
+                    mailchimp_api_url: mailchimp_api_url
+                }
+end
+
+# old registration process
 post '/app/register' do
 
     require 'mail'
@@ -45,3 +57,6 @@ post '/app/register' do
         halt 500
     end
 end
+
+# def tobsonid(id) BSON::ObjectId.fromstring(id) end 
+# def frombsonid(obj) obj.merge({'id' => obj['id'].tos}) end
