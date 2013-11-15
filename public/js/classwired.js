@@ -5,15 +5,13 @@ var classwired = (function(cw) {
         points: $("#info .point-container"),
         points_nav: $("#info .point-nav"),
         curr_point_index: 0,
-        MESSAGE_SUCCESS_FORM: 'Thank you for registering!',
+        MESSAGE_SUCCESS_SUBSCRIPTION: 'Thank you for registering!',
+        MESSAGE_SUCCESS_ALREADY_SIGNED_UP: 'Thank you, you&rsquo;ve already registered!',
         MESSAGE_ERROR_UNKNOWN: 'Oops! An error occured, please try again soon.',
         MESSAGE_ERROR_INVALID_EMAIL: 'Please enter a vaild email address.',
         MESSAGE_ERROR_EMPTY_EMAIL: 'Please enter your email address.',
         FORM_MESSAGE_TYPES: ['success', 'error'],
-        CLASSWIRED_LIST_NAMES: {
-            mvp_signup: 'ClassWired signups'
-        },
-
+        
         init: function() {
             this.setupRegForm();
             this.setupPoints();
@@ -106,30 +104,14 @@ var classwired = (function(cw) {
 
         submitEmail: function(email) {
             var api_key = classwired.config.mailchimp_api_key,
-                api_url = classwired.config.mailchimp_api_url;
+                api_url = classwired.config.mailchimp_api_url,
+                list_id = classwired.config.mailchimp_signup_list_id;
             
-            this.getMailchimpList(api_url, api_key)
-                .done(function(response){
-                    var lists = response.data;
-                    var list = _.find(
-                        lists,
-                        function(list) {
-                            return list.name === this.CLASSWIRED_LIST_NAMES.mvp_signup;
-                        },
-                        this
-                    );
-
-                    this.onMailChimpListRetrieved(
-                        email,
-                        list.id,
-                        api_url,
-                        api_key
-                    );
-                })
-                .fail(function(response) {
-                    this.onRegFail(response);
-                    this.onRegAlways(response);
-                });
+            // this.subscribeToMailchimpList(email, list_id, api_url, api_key)
+            this.subscribeViaApi()
+                .done(function(response) { this.onRegSuccess(response); })
+                .fail(function(response) { this.onRegFail(response); })
+                .always(function(response) { this.onRegAlways(response); });
         },
 
         subscribeViaApi: function() {
@@ -142,32 +124,17 @@ var classwired = (function(cw) {
             });
         },
 
-        getMailchimpList: function(api_url, api_key) {
-            return $.ajax({
-                url: _.str.sprintf('%slists/list', api_url),
-                data: {apikey: api_key},
-                dataType: 'json',
-                context: this
-            });
-        },
-
-        onMailChimpListRetrieved: function(email, list_id, api_url, api_key) {
-            this.subscribeToMailchimpList(email, list_id, api_url, api_key)
-                .done(function(response) { this.onRegSuccess(response); })
-                .fail(function(response) { this.onRegFail(response); })
-                .always(function(response) { this.onRegAlways(response); });
-        },
-
         subscribeToMailchimpList: function(email, list_id, api_url, api_key) {
-            var subscription_data = {
+            var subscription_data = JSON.stringify({
                 email: {email: email},
                 apikey: api_key,
                 id: list_id
-            };
+            });
+
             return $.ajax({
                 url: _.str.sprintf('%slists/subscribe', api_url),
                 method: 'post',
-                data: JSON.stringify(subscription_data),
+                data: subscription_data,
                 contentType: 'application/json',
                 dataType: 'json',
                 context: this
@@ -175,11 +142,18 @@ var classwired = (function(cw) {
         },
 
         onRegSuccess: function(response) {
-            this.showFormSuccessMessage(this.MESSAGE_SUCCESS_FORM);
+            this.showFormSuccessMessage(this.MESSAGE_SUCCESS_SUBSCRIPTION);
             $('#submit').html('&#10004;');
         },
 
         onRegFail: function(response) {
+            response_json = response.responseJSON || {};
+
+            if((response_json.code || '') === 214) {
+                this.showFormSuccessMessage(this.MESSAGE_SUCCESS_ALREADY_SIGNED_UP);
+                return;
+            }
+                    
             this.showFormErrorMessage(this.MESSAGE_ERROR_UNKNOWN);
         },
 

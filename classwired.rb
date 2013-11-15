@@ -6,6 +6,9 @@ require 'json'
 
 # mailchimp integration variables
 MAILCHIMP_API_KEY = '1ba7966ebde9df6b1e75da88f1063581-us7'
+MAILCHIMP_LISTS = {
+    mvp_signup_id: 'f71cd4ae42'
+}
 
 def build_mailchimp_api_url_from_key(mailchimp_api_key)
     parts = mailchimp_api_key.split('-')
@@ -18,7 +21,8 @@ get '/' do
 
     erb :index, locals: {
                     mailchimp_api_key: mailchimp_api_key,
-                    mailchimp_api_url: mailchimp_api_url
+                    mailchimp_api_url: mailchimp_api_url,
+                    mailchimp_signup_list_id: MAILCHIMP_LISTS[:mvp_signup_id]
                 }
 end
 
@@ -40,7 +44,7 @@ post '/app/register' do
         delivery_method :smtp, options
     end
 
-    recipient = params[:email] # this is bizarrely necessary
+    recipient = params[:email]
 
     begin
         mailObject = Mail.deliver do
