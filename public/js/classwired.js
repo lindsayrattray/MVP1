@@ -118,14 +118,13 @@ var classwired = (function(cw) {
                         },
                         this
                     );
-                    console.log(list.name, list.id);
-                    
-                    // this.onMailChimpListRetrieved(
-                    //     email,
-                    //     list_id,
-                    //     api_url,
-                    //     api_key
-                    // );
+
+                    this.onMailChimpListRetrieved(
+                        email,
+                        list.id,
+                        api_url,
+                        api_key
+                    );
                 })
                 .fail(function(response) {
                     this.onRegFail(response);
