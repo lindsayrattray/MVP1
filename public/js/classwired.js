@@ -10,12 +10,15 @@ var classwired = (function(cw) {
         MESSAGE_ERROR_INVALID_EMAIL: 'Please enter a vaild email address.',
         MESSAGE_ERROR_EMPTY_EMAIL: 'Please enter your email address.',
         FORM_MESSAGE_TYPES: ['success', 'error'],
+        CLASSWIRED_LIST_NAMES: {
+            mvp_signup: 'ClassWired signups'
+        },
 
         init: function() {
             this.setupRegForm();
             this.setupPoints();
         },
-        
+
         ////
 
         showFormMessage: function(messages, type) {
@@ -107,13 +110,22 @@ var classwired = (function(cw) {
             
             this.getMailchimpList(api_url, api_key)
                 .done(function(response){
-                    var list_id = _.first(response.data).id;
-                    this.onMailChimpListRetrieved(
-                        email,
-                        list_id,
-                        api_url,
-                        api_key
+                    var lists = response.data;
+                    var list = _.find(
+                        lists,
+                        function(list) {
+                            return list.name === this.CLASSWIRED_LIST_NAMES.mvp_signup;
+                        },
+                        this
                     );
+                    console.log(list.name, list.id);
+                    
+                    // this.onMailChimpListRetrieved(
+                    //     email,
+                    //     list_id,
+                    //     api_url,
+                    //     api_key
+                    // );
                 })
                 .fail(function(response) {
                     this.onRegFail(response);
@@ -169,7 +181,6 @@ var classwired = (function(cw) {
         },
 
         onRegFail: function(response) {
-            console.log("FAILED", response);
             this.showFormErrorMessage(this.MESSAGE_ERROR_UNKNOWN);
         },
 
