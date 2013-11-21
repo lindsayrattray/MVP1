@@ -3,6 +3,7 @@ require 'bundler/setup'
 require 'sinatra'
 require 'erb'
 require 'json'
+require 'httparty'
 
 # mailchimp integration variables
 MAILCHIMP_API_KEY = '1ba7966ebde9df6b1e75da88f1063581-us7'
@@ -10,20 +11,46 @@ MAILCHIMP_LISTS = {
     mvp_signup_id: 'f71cd4ae42'
 }
 
-def build_mailchimp_api_url_from_key(mailchimp_api_key)
-    parts = mailchimp_api_key.split('-')
-    return 'https://%s.api.mailchimp.com/2.0/' % parts.last
+## Return response to be near identical to called api response
+def construct_response(raw)
+    body = ''
+    body = raw.body if raw.body
+    if(raw.headers['content-type'])
+        headers 'Content-Type' => raw.headers['content-type']
+        if raw.headers['content-type'] == 'application/json'
+            body = JSON.parse(raw.body).to_json
+        end
+    end
+    if(raw.headers['set-cookie'])
+        headers 'Set-Cookie' => raw.headers['set-cookie']
+    end
+    status raw.code
+    response.body = body
 end
 
-get '/' do
-    mailchimp_api_key = MAILCHIMP_API_KEY
-    mailchimp_api_url = build_mailchimp_api_url_from_key(mailchimp_api_key)
+## Mailchimp API Funcs
+def build_mailchimp_api_url_from_key(mailchimp_api_key)
+    parts = mailchimp_api_key.split('-')
+    return 'https://%s.api.mailchimp.com/2.0' % parts.last
+end
 
-    erb :index, locals: {
-                    mailchimp_api_key: mailchimp_api_key,
-                    mailchimp_api_url: mailchimp_api_url,
-                    mailchimp_signup_list_id: MAILCHIMP_LISTS[:mvp_signup_id]
-                }
+## App routes
+
+get '/' do
+    erb :index
+end
+
+post '/app/subscribe_to_mailchimp_list' do
+
+    uri = "#{build_mailchimp_api_url_from_key(MAILCHIMP_API_KEY)}/lists/subscribe"
+    payload = {
+        apikey: MAILCHIMP_API_KEY,
+        id: MAILCHIMP_LISTS[:mvp_signup_id],
+        email: {email: params[:email]}
+    }
+    str_response = HTTParty.post( uri, :body => payload )
+    construct_response(str_response)
+
 end
 
 # old registration process
@@ -47,7 +74,7 @@ post '/app/register' do
     recipient = params[:email]
 
     begin
-        mailObject = Mail.deliver do
+        Mail.deliver do
             from 'classwired@gmail.com'
             to 'lindsayrattray@yahoo.com'
             subject 'ClassWired registration'
@@ -60,6 +87,7 @@ post '/app/register' do
         rescue
         halt 500
     end
+
 end
 
 # def tobsonid(id) BSON::ObjectId.fromstring(id) end 

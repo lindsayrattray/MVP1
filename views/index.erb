@@ -136,16 +136,7 @@
     <script src="js/classwired.js"></script>
     <!-- Config vars -->
     <script type="text/javascript">
-        classwired = _.extend(
-            classwired || {},
-            {
-                config: {
-                    mailchimp_api_key: "<%= mailchimp_api_key %>",
-                    mailchimp_api_url: "<%= mailchimp_api_url %>",
-                    mailchimp_signup_list_id: "<%= mailchimp_signup_list_id %>"
-                }
-            }
-        );
+        classwired = _.extend( classwired || {}, {} );
     </script>
     <!-- Google Code for New subscribers Conversion Page -->
     <script type="text/javascript">

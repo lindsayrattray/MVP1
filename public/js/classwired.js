@@ -103,12 +103,7 @@ var classwired = (function(cw) {
         },
 
         submitEmail: function(email) {
-            var api_key = classwired.config.mailchimp_api_key,
-                api_url = classwired.config.mailchimp_api_url,
-                list_id = classwired.config.mailchimp_signup_list_id;
-            
-            // this.subscribeToMailchimpList(email, list_id, api_url, api_key)
-            this.subscribeViaApi()
+            this.subscribeToMailchimpList(email)
                 .done(function(response) { this.onRegSuccess(response); })
                 .fail(function(response) { this.onRegFail(response); })
                 .always(function(response) { this.onRegAlways(response); });
@@ -124,18 +119,11 @@ var classwired = (function(cw) {
             });
         },
 
-        subscribeToMailchimpList: function(email, list_id, api_url, api_key) {
-            var subscription_data = JSON.stringify({
-                email: {email: email},
-                apikey: api_key,
-                id: list_id
-            });
-
+        subscribeToMailchimpList: function(email) {
             return $.ajax({
-                url: _.str.sprintf('%slists/subscribe', api_url),
+                url: 'app/subscribe_to_mailchimp_list',
                 method: 'post',
-                data: subscription_data,
-                contentType: 'application/json',
+                data: {email: email},
                 dataType: 'json',
                 context: this
             });
